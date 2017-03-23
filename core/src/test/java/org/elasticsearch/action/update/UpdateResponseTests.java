@@ -73,7 +73,7 @@ public class UpdateResponseTests extends ESTestCase {
             updateResponse.setGetResult(new GetResult("books", "book", "1", 2, true, source, fields));
 
             String output = Strings.toString(updateResponse);
-            assertEquals("{\"_index\":\"books\",\"_type\":\"book\",\"_id\":\"1\",\"_version\":2,\"result\":\"updated\"," +
+            assertEquals("{\"_index\":\"books\",\"_type\":\"book\",\"_id\":\"1\",\"_took\":0,\"_version\":2,\"result\":\"updated\"," +
                     "\"_shards\":{\"total\":3,\"successful\":2,\"failed\":0},\"_seq_no\":7,\"get\":{\"found\":true," +
                     "\"_source\":{\"title\":\"Book title\",\"isbn\":\"ABC-123\"},\"fields\":{\"isbn\":[\"ABC-123\"],\"title\":[\"Book " +
                     "title\"]}}}", output);
