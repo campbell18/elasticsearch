@@ -187,7 +187,7 @@ public class BulkItemResponse implements Streamable, StatusToXContentObject {
         }
 
         Failure(String index, String type, String id, Exception cause, RestStatus status) {
-            this(index, type, id, 01L, cause, status);
+            this(index, type, id, 0L, cause, status);
         }
 
         public Failure(String index, String type, String id, Long tookInMillis, Exception cause) {
@@ -195,7 +195,7 @@ public class BulkItemResponse implements Streamable, StatusToXContentObject {
     }
 
         public Failure(String index, String type, String id, Exception cause) {
-            this(index, type, id, -1L, cause, ExceptionsHelper.status(cause));
+            this(index, type, id, 0L, cause, ExceptionsHelper.status(cause));
         }
 
         /**
