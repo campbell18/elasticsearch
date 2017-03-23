@@ -43,7 +43,7 @@ public class IndexResponseTests extends ESTestCase {
         {
             IndexResponse indexResponse = new IndexResponse(new ShardId("index", "index_uuid", 0), "type", "id", 0L, 3, 5, true);
             String output = Strings.toString(indexResponse);
-            assertEquals("{\"_index\":\"index\",\"_type\":\"type\",\"_id\":\"id\",\"took\":0,\"_version\":5,\"result\":\"created\"," +
+            assertEquals("{\"_index\":\"index\",\"_type\":\"type\",\"_id\":\"id\",\"_took\":0,\"_version\":5,\"result\":\"created\"," +
                     "\"_shards\":null,\"_seq_no\":3,\"created\":true}", output);
         }
         {
@@ -51,7 +51,7 @@ public class IndexResponseTests extends ESTestCase {
             indexResponse.setForcedRefresh(true);
             indexResponse.setShardInfo(new ReplicationResponse.ShardInfo(10, 5));
             String output = Strings.toString(indexResponse);
-            assertEquals("{\"_index\":\"index\",\"_type\":\"type\",\"_id\":\"id\",\"took\":0,\"_version\":7,\"result\":\"created\"," +
+            assertEquals("{\"_index\":\"index\",\"_type\":\"type\",\"_id\":\"id\",\"_took\":0,\"_version\":7,\"result\":\"created\"," +
                     "\"forced_refresh\":true,\"_shards\":{\"total\":10,\"successful\":5,\"failed\":0},\"created\":true}", output);
         }
     }

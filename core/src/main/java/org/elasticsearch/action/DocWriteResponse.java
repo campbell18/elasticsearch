@@ -342,6 +342,8 @@ public abstract class DocWriteResponse extends ReplicationResponse implements Wr
                 context.setType(parser.text());
             } else if (_ID.equals(currentFieldName)) {
                 context.setId(parser.text());
+            } else if (_TOOK.equals(currentFieldName)) {
+                context.setTookInMillis(parser.longValue());
             } else if (_VERSION.equals(currentFieldName)) {
                 context.setVersion(parser.longValue());
             } else if (RESULT.equals(currentFieldName)) {
